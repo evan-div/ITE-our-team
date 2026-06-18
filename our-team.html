@@ -232,145 +232,41 @@
     ════════════════════════════════════════ */
     .hero {
       position: relative;
-      padding-top: 140px;
-      padding-bottom: 80px;
+      height: 88vh; min-height: 560px; max-height: 900px;
+      display: flex; align-items: flex-end;
       overflow: hidden;
-      background: var(--dark);
     }
-
-    /* Noise / grain texture overlay */
-    .hero::before {
-      content: '';
+    .hero-bg {
       position: absolute; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-      opacity: 0.025;
-      pointer-events: none;
-      z-index: 0;
+      background-image: url('https://intheevent.com/wp-content/uploads/2026/04/IMG_9647_bw.png');
+      background-size: cover;
+      background-position: center;
+      background-color: var(--dark);
     }
-
-    /* Subtle radial glow */
-    .hero::after {
-      content: '';
+    .hero-overlay {
       position: absolute; inset: 0;
-      background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(195,255,138,0.06) 0%, transparent 70%);
+      background: linear-gradient(to bottom, rgba(8,8,9,0.1) 0%, rgba(8,8,9,0.78) 100%);
       pointer-events: none;
-      z-index: 0;
     }
-
     .hero-content {
       position: relative; z-index: 2;
+      width: 100%; padding-bottom: 72px;
     }
-
     .hero h1 {
-      font-size: clamp(2.6rem, 5.5vw, 4.4rem);
-      font-weight: 500; line-height: 1.1;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--white); max-width: 860px;
-      margin-bottom: 24px;
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      font-weight: 500; line-height: 1;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--white);
     }
-
-    .hero-lede {
-      font-size: clamp(1.1rem, 1.8vw, 1.35rem);
-      color: var(--green); line-height: 1.6;
-      font-weight: 500; max-width: 700px;
-      margin-bottom: 52px;
-    }
-
-    /* ── STAT BAR ── */
-    .stat-bar {
-      display: flex; gap: 0;
-      border: 1px solid var(--green-faint);
-      border-radius: 10px; overflow: hidden;
-      margin-top: 52px;
-      max-width: 640px;
-    }
-    .stat-item {
-      flex: 1;
-      padding: 24px 28px;
-      border-right: 1px solid var(--green-faint);
-      display: flex; flex-direction: column; gap: 4px;
-    }
-    .stat-item:last-child { border-right: none; }
-    .stat-number {
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      font-weight: 500; letter-spacing: 0.04em;
-      color: var(--green); line-height: 1;
-    }
-    .stat-label {
-      font-size: 11px; font-weight: 500;
-      letter-spacing: 0.22em; text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
-    }
-
     @media (max-width: 640px) {
-      .hero { padding-top: 110px; padding-bottom: 60px; }
-      .stat-bar { max-width: 100%; }
-      .stat-item { padding: 18px 16px; }
+      .hero { min-height: 480px; }
+      .hero-content { padding-bottom: 48px; }
     }
 
     /* ════════════════════════════════════════
        TEAM CARDS
     ════════════════════════════════════════ */
 
-    /* Robert feature layout */
-    .robert-split {
-      display: grid;
-      grid-template-columns: 45% 1fr;
-      gap: 64px; align-items: start;
-      margin-top: 12px;
-    }
-    .robert-photo {
-      position: relative; overflow: hidden; border-radius: 12px;
-      border: 1px solid var(--green-faint);
-    }
-    .robert-photo img {
-      width: 100%; aspect-ratio: 3/4;
-      object-fit: cover; object-position: center top;
-      display: block;
-      transition: transform 0.5s ease;
-    }
-    .robert-photo:hover img { transform: scale(1.03); }
-
-    .robert-bio { padding-top: 8px; }
-    .robert-name {
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--white); line-height: 1.1;
-      margin-bottom: 6px;
-    }
-    .robert-title {
-      font-size: 12px; font-weight: 500;
-      letter-spacing: 0.28em; text-transform: uppercase;
-      color: var(--green); margin-bottom: 28px;
-    }
-    .robert-bio p {
-      font-size: 16px; line-height: 1.78;
-      color: rgba(255,255,255,0.80);
-      margin-bottom: 18px;
-    }
-    .robert-bio p:last-child { margin-bottom: 0; }
-
-    @media (max-width: 900px) {
-      .robert-split { grid-template-columns: 1fr; gap: 36px; }
-      .robert-photo img { aspect-ratio: 4/3; object-position: center 20%; }
-    }
-
-    /* Leadership sub-grid (4-column) */
-    .leadership-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      margin-top: 52px;
-    }
-
-    /* Sales grid (3-column) */
-    .team-grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    /* Creative grid (4-column) */
     .team-grid-4 {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -564,68 +460,32 @@
 <!-- ════════════════════════════════════════
      HERO
 ════════════════════════════════════════ -->
-<section class="hero section-dark" aria-label="Our Team hero">
+<section class="hero" aria-label="Our Team hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
   <div class="hero-content container">
-    <span class="eyebrow reveal">Our Team</span>
-    <h1 class="reveal">The People Behind<br>the Production</h1>
-    <p class="hero-lede reveal">Salt Lake City's most experienced event production team — designers, directors, technicians, and creative professionals united by one obsession: flawless execution.</p>
-
-    <div class="stat-bar reveal" role="list" aria-label="Team statistics">
-      <div class="stat-item" role="listitem">
-        <span class="stat-number">40+</span>
-        <span class="stat-label">Years Combined Experience</span>
-      </div>
-      <div class="stat-item" role="listitem">
-        <span class="stat-number">16</span>
-        <span class="stat-label">Team Members</span>
-      </div>
-      <div class="stat-item" role="listitem">
-        <span class="stat-number">Nationwide</span>
-        <span class="stat-label">Event Reach</span>
-      </div>
-    </div>
+    <h1 class="reveal">Our Team</h1>
   </div>
 </section>
 
 <!-- ════════════════════════════════════════
-     LEADERSHIP
+     TEAM GRID
 ════════════════════════════════════════ -->
-<section class="section section-navy" id="leadership" aria-labelledby="leadership-heading">
+<section class="section section-dark" id="meet-the-team" aria-label="Meet the team">
   <div class="container">
-    <span class="eyebrow reveal">Leadership</span>
-    <h2 class="section-h2 reveal" id="leadership-heading">Where Vision Meets Execution</h2>
+    <div class="team-grid-4">
 
-    <!-- Robert Feature -->
-    <div class="robert-split reveal">
-      <div class="robert-photo">
-        <img
-          src="https://intheevent.com/wp-content/uploads/2023/01/Robert-LaSpina-600x750.jpg"
-          alt="Robert LaSpina, Owner of In The Event"
-          width="600" height="750"
-          loading="eager"
-        />
-      </div>
-      <div class="robert-bio">
-        <p class="robert-title">Owner &mdash; In The Event / Mannequin Rental Co. / Business Jaunt</p>
-        <h2 class="robert-name">Robert<br>LaSpina</h2>
-        <p>With over 40 years in the event industry, Robert LaSpina has built a reputation for innovation, leadership, and precision. Born and raised in Las Vegas, Robert was immersed in live entertainment from an early age — his mother was the lead dancer for the original Casino De Paris and his father produced, directed, and choreographed countless shows on the Las Vegas Strip.</p>
-        <p>His career spans Executive Director of Hotels &amp; Logistics at Encore Productions Las Vegas and Director of Sales for a leading Utah AV company. He launched In The Event in 2007 and has since expanded into Business Jaunt and Mannequin Rental Co.</p>
-        <p>Robert serves on the UVU Event Management Advisory Board, the 388th Fighter Wing Honorary Commanders Program at Hill Air Force Base, and the Board of Trustees at the Utah Museum of Contemporary Art (UMOCA).</p>
-      </div>
-    </div>
-
-    <!-- Leadership Grid -->
-    <div class="leadership-grid">
+      <article class="team-card reveal" aria-label="Robert LaSpina">
+        <div class="team-card-photo"><img src="https://intheevent.com/wp-content/uploads/2023/01/Robert-LaSpina-600x750.jpg" alt="Robert LaSpina, Owner of In The Event" width="600" height="750" loading="eager" /></div>
+        <div class="team-card-body">
+          <p class="team-card-title">Owner</p>
+          <h3 class="team-card-name">Robert LaSpina</h3>
+          <p class="team-card-bio">With over 40 years in the event industry, Robert has built a reputation for innovation, leadership, and precision. He launched In The Event in 2007 and has since expanded into Business Jaunt and Mannequin Rental Co. He serves on the UVU Event Management Advisory Board, the 388th Fighter Wing Honorary Commanders Program, and the Board of Trustees at UMOCA.</p>
+        </div>
+      </article>
 
       <article class="team-card reveal" aria-label="Tyson LaSpina">
-        <div class="team-card-photo">
-          <img
-            src="https://intheevent.com/wp-content/uploads/2026/05/26-0331ITE-TysonLaSpina17083-2-600x750.jpg"
-            alt="Tyson LaSpina, Vice President of Operations at In The Event"
-            width="600" height="750"
-            loading="lazy"
-          />
-        </div>
+        <div class="team-card-photo"><img src="https://intheevent.com/wp-content/uploads/2026/05/26-0331ITE-TysonLaSpina17083-2-600x750.jpg" alt="Tyson LaSpina, Vice President of Operations at In The Event" width="600" height="750" loading="lazy" /></div>
         <div class="team-card-body">
           <p class="team-card-title">Vice President of Operations</p>
           <h3 class="team-card-name">Tyson LaSpina</h3>
@@ -634,14 +494,7 @@
       </article>
 
       <article class="team-card reveal" aria-label="Dawn Lynch">
-        <div class="team-card-photo">
-          <img
-            src="https://intheevent.com/wp-content/uploads/2023/01/26-0331ITE-DawnLynch17045-Edit-2-600x750.jpg"
-            alt="Dawn Lynch, Director of Warehouse Operations at In The Event"
-            width="600" height="750"
-            loading="lazy"
-          />
-        </div>
+        <div class="team-card-photo"><img src="https://intheevent.com/wp-content/uploads/2023/01/26-0331ITE-DawnLynch17045-Edit-2-600x750.jpg" alt="Dawn Lynch, Director of Warehouse Operations at In The Event" width="600" height="750" loading="lazy" /></div>
         <div class="team-card-body">
           <p class="team-card-title">Director of Warehouse Operations</p>
           <h3 class="team-card-name">Dawn Lynch</h3>
@@ -650,14 +503,7 @@
       </article>
 
       <article class="team-card reveal" aria-label="Jennifer Hollm">
-        <div class="team-card-photo">
-          <img
-            src="https://intheevent.com/wp-content/uploads/2023/01/Jennifer-Hollm-600x750.jpg"
-            alt="Jennifer Hollm, Director of Sales at In The Event"
-            width="600" height="750"
-            loading="lazy"
-          />
-        </div>
+        <div class="team-card-photo"><img src="https://intheevent.com/wp-content/uploads/2023/01/Jennifer-Hollm-600x750.jpg" alt="Jennifer Hollm, Director of Sales at In The Event" width="600" height="750" loading="lazy" /></div>
         <div class="team-card-body">
           <p class="team-card-title">Director of Sales</p>
           <h3 class="team-card-name">Jennifer Hollm</h3>
@@ -666,47 +512,16 @@
       </article>
 
       <article class="team-card reveal" aria-label="Carra Hood">
-        <div class="team-card-photo">
-          <img
-            src="https://intheevent.com/wp-content/uploads/2026/05/26-0331ITE-CarraHood17223-2-600x750.jpg"
-            alt="Carra Hood, Vice President of Sales at In The Event"
-            width="600" height="750"
-            loading="lazy"
-          />
-        </div>
+        <div class="team-card-photo"><img src="https://intheevent.com/wp-content/uploads/2026/05/26-0331ITE-CarraHood17223-2-600x750.jpg" alt="Carra Hood, Vice President of Sales at In The Event" width="600" height="750" loading="lazy" /></div>
         <div class="team-card-body">
           <p class="team-card-title">Vice President of Sales</p>
           <h3 class="team-card-name">Carra Hood</h3>
-          <p class="team-card-bio">With over a decade in events, Carra has worked across collegiate athletics, non-profit fundraising, pharmaceutical marketing, live stage production, and social events. She designs and produces events for social and corporate clients, manages budgets and vendor contracts, and serves as the team's lead floral designer.</p>
+          <p class="team-card-bio">With over a decade in events, Carra has worked across collegiate athletics, non-profit fundraising, pharmaceutical marketing, live stage production, and social events. She designs and produces events for social and corporate clients and serves as the team's lead floral designer.</p>
         </div>
       </article>
 
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- ════════════════════════════════════════
-     SALES & EVENTS TEAM
-════════════════════════════════════════ -->
-<section class="section section-dark" id="sales-team" aria-labelledby="sales-heading">
-  <div class="container">
-    <span class="eyebrow reveal">Sales &amp; Events</span>
-    <h2 class="section-h2 reveal" id="sales-heading">Your Partners From First Call to Final Bow</h2>
-    <p class="section-intro-p reveal">Our sales and events team is with you at every stage — from the first conversation through the final walk-through. They translate your vision into logistics and make sure the details don't slip.</p>
-
-    <div class="team-grid-3">
-
       <article class="team-card reveal" aria-label="Kennedy Gray">
-        <div class="team-card-photo">
-          <img
-            src="https://intheevent.com/wp-content/uploads/2023/01/Kennedy-Gray-600x750.jpg"
-            alt="Kennedy Gray, Senior Account Executive at In The Event"
-            width="600" height="750"
-            loading="lazy"
-          />
-        </div>
+        <div class="team-card-photo"><img src="https://intheevent.com/wp-content/uploads/2023/01/Kennedy-Gray-600x750.jpg" alt="Kennedy Gray, Senior Account Executive at In The Event" width="600" height="750" loading="lazy" /></div>
         <div class="team-card-body">
           <p class="team-card-title">Senior Account Executive</p>
           <h3 class="team-card-name">Kennedy Gray</h3>
@@ -715,14 +530,7 @@
       </article>
 
       <article class="team-card reveal" aria-label="Karsen Stimola">
-        <div class="team-card-photo">
-          <img
-            src="https://intheevent.com/wp-content/uploads/2023/12/23-1214ITE-CarsonStimola8169-3-scaled.jpg"
-            alt="Karsen Stimola, Account Executive at In The Event"
-            width="600" height="750"
-            loading="lazy"
-          />
-        </div>
+        <div class="team-card-photo"><img src="https://intheevent.com/wp-content/uploads/2023/12/23-1214ITE-CarsonStimola8169-3-scaled.jpg" alt="Karsen Stimola, Account Executive at In The Event" width="600" height="750" loading="lazy" /></div>
         <div class="team-card-body">
           <p class="team-card-title">Account Executive</p>
           <h3 class="team-card-name">Karsen Stimola</h3>
@@ -731,14 +539,7 @@
       </article>
 
       <article class="team-card reveal" aria-label="Kara Hansen">
-        <div class="team-card-photo">
-          <img
-            src="https://intheevent.com/wp-content/uploads/2026/04/26-0331ITE-KaraHansen16956-Edit-2-600x750.jpg"
-            alt="Kara Hansen, Event Rental Specialist at In The Event"
-            width="600" height="750"
-            loading="lazy"
-          />
-        </div>
+        <div class="team-card-photo"><img src="https://intheevent.com/wp-content/uploads/2026/04/26-0331ITE-KaraHansen16956-Edit-2-600x750.jpg" alt="Kara Hansen, Event Rental Specialist at In The Event" width="600" height="750" loading="lazy" /></div>
         <div class="team-card-body">
           <p class="team-card-title">Event Rental Specialist</p>
           <h3 class="team-card-name">Kara Hansen</h3>
@@ -746,32 +547,8 @@
         </div>
       </article>
 
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- ════════════════════════════════════════
-     CREATIVE TEAM
-════════════════════════════════════════ -->
-<section class="section section-navy" id="creative-team" aria-labelledby="creative-heading">
-  <div class="container">
-    <span class="eyebrow reveal">Creative</span>
-    <h2 class="section-h2 reveal" id="creative-heading">Design That Makes Rooms Stop and Stare</h2>
-    <p class="section-intro-p reveal">From motion graphics and 3D rendering to brand identity and environmental design — our creative team brings events to life before a single piece of furniture ships.</p>
-
-    <div class="team-grid-4">
-
       <article class="team-card reveal" aria-label="Jonathan Nguyen">
-        <div class="team-card-photo">
-          <img
-            src="https://intheevent.com/wp-content/uploads/2023/01/Jonathan-Nguyen-600x750.jpg"
-            alt="Jonathan Nguyen, Creative Director and Marketing Manager at In The Event"
-            width="600" height="750"
-            loading="lazy"
-          />
-        </div>
+        <div class="team-card-photo"><img src="https://intheevent.com/wp-content/uploads/2023/01/Jonathan-Nguyen-600x750.jpg" alt="Jonathan Nguyen, Creative Director and Marketing Manager at In The Event" width="600" height="750" loading="lazy" /></div>
         <div class="team-card-body">
           <p class="team-card-title">Creative Director &amp; Marketing Manager</p>
           <h3 class="team-card-name">Jonathan Nguyen</h3>
@@ -780,14 +557,7 @@
       </article>
 
       <article class="team-card reveal" aria-label="Gabriela Parra">
-        <div class="team-card-photo">
-          <img
-            src="https://intheevent.com/wp-content/uploads/2024/09/24-0813ITE-GabrielaParra2998-scaled.jpg"
-            alt="Gabriela Parra, Junior Graphic Designer at In The Event"
-            width="600" height="750"
-            loading="lazy"
-          />
-        </div>
+        <div class="team-card-photo"><img src="https://intheevent.com/wp-content/uploads/2024/09/24-0813ITE-GabrielaParra2998-scaled.jpg" alt="Gabriela Parra, Junior Graphic Designer at In The Event" width="600" height="750" loading="lazy" /></div>
         <div class="team-card-body">
           <p class="team-card-title">Junior Graphic Designer</p>
           <h3 class="team-card-name">Gabriela Parra</h3>
@@ -796,14 +566,7 @@
       </article>
 
       <article class="team-card reveal" aria-label="Evan Cordova">
-        <div class="team-card-photo">
-          <img
-            src="https://intheevent.com/wp-content/uploads/2026/04/26-0331ITE-EvanCordova17258-Edit-2-600x750.jpg"
-            alt="Evan Cordova, Junior Graphic Designer at In The Event"
-            width="600" height="750"
-            loading="lazy"
-          />
-        </div>
+        <div class="team-card-photo"><img src="https://intheevent.com/wp-content/uploads/2026/04/26-0331ITE-EvanCordova17258-Edit-2-600x750.jpg" alt="Evan Cordova, Junior Graphic Designer at In The Event" width="600" height="750" loading="lazy" /></div>
         <div class="team-card-body">
           <p class="team-card-title">Junior Graphic Designer</p>
           <h3 class="team-card-name">Evan Cordova</h3>
@@ -812,14 +575,7 @@
       </article>
 
       <article class="team-card reveal" aria-label="Anthony Eversole">
-        <div class="team-card-photo">
-          <img
-            src="https://intheevent.com/wp-content/uploads/2026/04/26-0331ITE-AnthonyEversole16881-Edit-2-600x750.jpg"
-            alt="Anthony Eversole, Junior Graphic Designer at In The Event"
-            width="600" height="750"
-            loading="lazy"
-          />
-        </div>
+        <div class="team-card-photo"><img src="https://intheevent.com/wp-content/uploads/2026/04/26-0331ITE-AnthonyEversole16881-Edit-2-600x750.jpg" alt="Anthony Eversole, Junior Graphic Designer at In The Event" width="600" height="750" loading="lazy" /></div>
         <div class="team-card-body">
           <p class="team-card-title">Junior Graphic Designer</p>
           <h3 class="team-card-name">Anthony Eversole</h3>
@@ -827,32 +583,8 @@
         </div>
       </article>
 
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- ════════════════════════════════════════
-     EVENT TECHNICIANS
-════════════════════════════════════════ -->
-<section class="section section-dark" id="field-team" aria-labelledby="field-heading">
-  <div class="container">
-    <span class="eyebrow reveal">Field Team</span>
-    <h2 class="section-h2 reveal" id="field-heading">The Crew That Makes It Happen</h2>
-    <p class="section-intro-p reveal">Our event technicians are the hands-on experts who build, wire, light, and strike every production we deliver. When the day-of pressure is highest, they perform at their best.</p>
-
-    <div class="team-grid-4">
-
       <article class="team-card tech-card reveal" aria-label="Kolby Butts">
-        <div class="team-card-photo">
-          <img
-            src="https://intheevent.com/wp-content/uploads/2023/01/Kolby-Butts-600x750.jpg"
-            alt="Kolby Butts, Event Technician at In The Event"
-            width="600" height="750"
-            loading="lazy"
-          />
-        </div>
+        <div class="team-card-photo"><img src="https://intheevent.com/wp-content/uploads/2023/01/Kolby-Butts-600x750.jpg" alt="Kolby Butts, Event Technician at In The Event" width="600" height="750" loading="lazy" /></div>
         <div class="team-card-body">
           <p class="team-card-title">Event Technician</p>
           <h3 class="team-card-name">Kolby Butts</h3>
@@ -860,14 +592,7 @@
       </article>
 
       <article class="team-card tech-card reveal" aria-label="Chris Bergin">
-        <div class="team-card-photo">
-          <img
-            src="https://intheevent.com/wp-content/uploads/2023/12/23-1214ITE-ChrisBergin8112-2-600x750.jpg"
-            alt="Chris Bergin, Event Technician at In The Event"
-            width="600" height="750"
-            loading="lazy"
-          />
-        </div>
+        <div class="team-card-photo"><img src="https://intheevent.com/wp-content/uploads/2023/12/23-1214ITE-ChrisBergin8112-2-600x750.jpg" alt="Chris Bergin, Event Technician at In The Event" width="600" height="750" loading="lazy" /></div>
         <div class="team-card-body">
           <p class="team-card-title">Event Technician</p>
           <h3 class="team-card-name">Chris Bergin</h3>
@@ -875,14 +600,7 @@
       </article>
 
       <article class="team-card tech-card reveal" aria-label="Kaden Warr">
-        <div class="team-card-photo">
-          <img
-            src="https://intheevent.com/wp-content/uploads/2023/12/23-1214ITE-KadenWarr8083-2-600x750.jpg"
-            alt="Kaden Warr, Event Technician at In The Event"
-            width="600" height="750"
-            loading="lazy"
-          />
-        </div>
+        <div class="team-card-photo"><img src="https://intheevent.com/wp-content/uploads/2023/12/23-1214ITE-KadenWarr8083-2-600x750.jpg" alt="Kaden Warr, Event Technician at In The Event" width="600" height="750" loading="lazy" /></div>
         <div class="team-card-body">
           <p class="team-card-title">Event Technician</p>
           <h3 class="team-card-name">Kaden Warr</h3>
@@ -890,14 +608,7 @@
       </article>
 
       <article class="team-card tech-card reveal" aria-label="Morgan Butts">
-        <div class="team-card-photo">
-          <img
-            src="https://intheevent.com/wp-content/uploads/2026/04/26-0331ITE-MorganButts16999-Edit-2-600x750.jpg"
-            alt="Morgan Butts, Event Technician at In The Event"
-            width="600" height="750"
-            loading="lazy"
-          />
-        </div>
+        <div class="team-card-photo"><img src="https://intheevent.com/wp-content/uploads/2026/04/26-0331ITE-MorganButts16999-Edit-2-600x750.jpg" alt="Morgan Butts, Event Technician at In The Event" width="600" height="750" loading="lazy" /></div>
         <div class="team-card-body">
           <p class="team-card-title">Event Technician</p>
           <h3 class="team-card-name">Morgan Butts</h3>
