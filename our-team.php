@@ -189,13 +189,13 @@
     color: var(--green); margin-bottom: 6px;
   }
   .ite-team-card-name {
-    font-size: 1.05rem; font-weight: 500;
+    font-size: 17px; font-weight: 500;
     letter-spacing: 0.08em; text-transform: uppercase;
     color: var(--white); line-height: 1.25;
     margin-bottom: 12px;
   }
   .ite-team-card-bio {
-    font-size: 0.875rem; line-height: 1.65;
+    font-size: 15px; line-height: 1.65;
     color: rgba(255,255,255,0.72);
   }
 
@@ -238,11 +238,15 @@
     font-size: 17px; line-height: 1.8;
     color: rgba(255,255,255,0.78);
   }
-  .ite-founder-full { margin-top: 48px; }
+  .ite-founder-full {
+    margin-top: 48px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(195,255,138,0.12);
+  }
   @media (max-width: 820px) {
     .ite-founder-inner { grid-template-columns: 1fr; gap: 40px; }
     .ite-founder-photo { min-height: 360px; max-width: 360px; }
-    .ite-founder-full { margin-top: 28px; }
+    .ite-founder-full { margin-top: 28px; padding-top: 28px; }
   }
 
   /* ════════════════════════════════════════
