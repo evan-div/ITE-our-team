@@ -133,12 +133,7 @@
     margin: 0;
   }
   @media (max-width: 640px) {
-    .ite-hero { min-height: 480px; }
-    .ite-hero-bg {
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center center;
-    }
+    .ite-hero { min-height: 60vh; }
   }
 
   /* ════════════════════════════════════════
