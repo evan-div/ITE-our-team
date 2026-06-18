@@ -103,7 +103,7 @@
   ════════════════════════════════════════ */
   .ite-hero {
     position: relative;
-    height: 88vh; min-height: 560px; max-height: 900px;
+    height: clamp(280px, 60vw, 900px);
     display: flex; align-items: center; justify-content: center;
     overflow: hidden;
     margin-bottom: -80px;
@@ -131,9 +131,6 @@
     letter-spacing: 0.1em; text-transform: uppercase;
     color: var(--green);
     margin: 0;
-  }
-  @media (max-width: 640px) {
-    .ite-hero { min-height: 60vh; }
   }
 
   /* ════════════════════════════════════════
