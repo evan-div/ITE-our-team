@@ -239,6 +239,10 @@
     color: rgba(255,255,255,0.78);
   }
   .ite-founder-full {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
     margin-top: 48px;
     padding-top: 40px;
     border-top: 1px solid rgba(195,255,138,0.12);
