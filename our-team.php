@@ -399,7 +399,7 @@
         <div class="ite-team-card-body">
           <p class="ite-team-card-title">Event Technician</p>
           <h3 class="ite-team-card-name">Kolby Butts</h3>
-          <p class="ite-team-card-bio">Kolby has the kind of calm that makes you trust he's done this a thousand times — because he has. When he's not wrangling cable runs or loading out at midnight, he's probably hiking somewhere in the Wasatch with his dog, sketching trail maps in a notebook, and listening to a true crime podcast he definitely shouldn't be listening to alone in the dark.</p>
+          
         </div>
       </article>
 
@@ -408,7 +408,7 @@
         <div class="ite-team-card-body">
           <p class="ite-team-card-title">Event Technician</p>
           <h3 class="ite-team-card-name">Chris Bergin</h3>
-          <p class="ite-team-card-bio">Chris is the guy who shows up early, stays late, and somehow still has energy to crack a joke at hour twelve. A gearhead at heart, he spends his weekends tinkering with anything with an engine — motorcycles, vintage trucks, the occasional broken lawnmower he couldn't resist rescuing. He's from a small town in Idaho and will tell you about it unprompted.</p>
+          
         </div>
       </article>
 
@@ -417,7 +417,7 @@
         <div class="ite-team-card-body">
           <p class="ite-team-card-title">Event Technician</p>
           <h3 class="ite-team-card-name">Kaden Warr</h3>
-          <p class="ite-team-card-bio">Kaden approaches a stage plot the same way he approaches a chess board — three moves ahead. A competitive gamer in a former life, he channeled that strategic energy into live event production and never looked back. In his free time he coaches youth flag football, makes surprisingly good sourdough, and is working on a short film he's been "almost done" with for two years.</p>
+          
         </div>
       </article>
 
@@ -426,7 +426,7 @@
         <div class="ite-team-card-body">
           <p class="ite-team-card-title">Event Technician</p>
           <h3 class="ite-team-card-name">Morgan Butts</h3>
-          <p class="ite-team-card-bio">Morgan is equal parts muscle and meticulous — the person who notices the pipe that's two inches off-center before anyone else even looks up. Originally from southern Utah, she grew up camping, rock climbing, and building things with her hands. She plays bass in a band on weekends, has strong opinions about coffee, and will absolutely win any staring contest you challenge her to.</p>
+          
         </div>
       </article>
 
